@@ -1,7 +1,6 @@
 #!/bin/sh
 apt update && apt install -y gnupg
-sh remote.sh
 sh commons.sh
-sh gateway.sh
+sh remote.sh
 sh wechat.sh
-sh user.sh
+sh mams.sh

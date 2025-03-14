@@ -1,6 +1,6 @@
 #!/bin/sh
 cd
-git clone git@gitee.com:micro-bank/remote.git
+git clone git@gitee.com:micro-applet/remote.git
 cd remote
 git checkout -b feature origin/feature
 $MAVEN_HOME/bin/mvn clean install -DskipTests=true
