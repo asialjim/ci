@@ -2,6 +2,6 @@
 cd
 git clone git@github.com:MicroApplet/Remote.git
 cd Remote
-sh release.sh
+mvn deploy
 cd
 rm -rf Remote

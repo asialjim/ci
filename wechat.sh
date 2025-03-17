@@ -2,6 +2,6 @@
 cd
 git clone git@github.com:MicroApplet/WeChat.git
 cd WeChat
-sh release.sh
+mvn deploy
 cd
 rm -rf WeChat

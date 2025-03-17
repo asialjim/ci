@@ -2,6 +2,6 @@
 cd
 git clone git@github.com:MicroApplet/MAMS.git
 cd MAMS
-sh release.sh
+mvn deploy
 cd
 rm -rf MAMS

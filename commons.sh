@@ -2,6 +2,6 @@
 cd
 git clone git@github.com:MicroApplet/commons.git
 cd commons
-sh release.sh
+mvn deploy
 cd
 rm -rf commons
