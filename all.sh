@@ -1,5 +1,5 @@
 #!/bin/sh
-apt update && apt install -y gnupg
+gpg --list-keys
 sh commons.sh
 sh remote.sh
 sh wechat.sh
