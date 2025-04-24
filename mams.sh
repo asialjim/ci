@@ -15,9 +15,11 @@
 # limitations under the License.
 #
 
-cd
-git clone git@github.com:MicroApplet/MAMS.git
-cd MAMS
-$MAVEN_HOME/bin/mvn clean install -DskipTests=true
-cd
-rm -rf MAMS
+#cd
+#git clone git@github.com:MicroApplet/MAMS.git
+#cd MAMS
+#$MAVEN_HOME/bin/mvn clean install -DskipTests=true
+#cd
+#rm -rf MAMS
+
+docker run -v /app asialjim/maven-with-gpg:jdk8 install --repository clone git@github.com:MicroApplet/MAMS.git
