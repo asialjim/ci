@@ -11,8 +11,8 @@ steps: # 定义流水线执行步骤，这些步骤将顺序执行
         path: /root/.m2 # 将maven下载依赖的目录挂载出来，防止重复下载
       - name: maven-settings
         path: /root/.m2/settings.xml
-#      - name: ssh-cache
-#        path: /root/.ssh
+      - name: ssh-cache
+        path: /root/.ssh
     commands: # 定义在Docker容器中执行的shell命令
       - sh all.sh
 
@@ -20,9 +20,9 @@ volumes: # 定义流水线挂载目录，用于共享数据
   - name: maven-cache
     host:
       path: /home/asialjim/.m2
-#  - name: ssh-cache
-#    host:
-#      path: /home/asialjim/.ssh
+  - name: ssh-cache
+    host:
+      path: /home/asialjim/.ssh
   - name: maven-settings
     host:
       path: /home/asialjim/.m2/settings.xml
