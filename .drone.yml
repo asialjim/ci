@@ -5,8 +5,9 @@ name: build # 定义流水线名称
 steps: # 定义流水线执行步骤，这些步骤将顺序执行
   - name: install
     image: drone/drone-runner-ssh # SSH工具镜像
+    network_mode: host
     settings:
-      host: 192.168.101.200 # 远程连接地址
+      host: 127.0.0.1 # 远程连接地址
       username: asialjim # 远程连接账号
       password:
         from_secret: ssh_password # 从Secret中读取SSH密码
