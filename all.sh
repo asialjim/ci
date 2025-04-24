@@ -15,7 +15,6 @@
 # limitations under the License.
 #
 
-apt update && apt install -y gnupg
 sh commons.sh
 sh remote.sh
 sh wechat.sh
