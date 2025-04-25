@@ -24,7 +24,7 @@ steps: # 定义流水线执行步骤，这些步骤将顺序执行
       port: 22 # 远程连接端口
       command_timeout: 5h # 远程执行命令超时时间
       script:
-        - cd /home/asialjim/.app/docker/gitee/ci/all.sh
+        - cd /home/asialjim/.app/docker/gitee/ci
         - pwd
         - ls -la
         - chmod +x all.sh # 更改为可执行脚本
