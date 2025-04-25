@@ -5,6 +5,7 @@ name: build # 定义流水线名称
 steps: # 定义流水线执行步骤，这些步骤将顺序执行
   - name: build
     image: appleboy/drone-ssh # SSH工具镜像
+    pull: if-not-exists
 #    network_mode: host
     settings:
       host: 172.40.0.1 # 远程连接地址
