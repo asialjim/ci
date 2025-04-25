@@ -14,6 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+ifconfig
 docker run -it --rm -e REPO=git@github.com:MicroApplet/commons.git -e CMD=install -v /home/asialjim/.ssh:/root/.ssh  -v /home/asialjim/.m2:/root/.m2  asialjim/maven-with-gpg:jdk8
 docker run -it --rm -e REPO=git@github.com:MicroApplet/Remote.git -e CMD=install -v /home/asialjim/.ssh:/root/.ssh  -v /home/asialjim/.m2:/root/.m2  asialjim/maven-with-gpg:jdk8
 docker run -it --rm -e REPO=git@github.com:MicroApplet/WeChat.git -e CMD=install -v /home/asialjim/.ssh:/root/.ssh  -v /home/asialjim/.m2:/root/.m2  asialjim/maven-with-gpg:jdk8
