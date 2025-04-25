@@ -15,12 +15,12 @@
 # limitations under the License.
 #
 
-docker run -it --rm -e REPO=git@github.com:MicroApplet/commons.git -e CMD=install -v /home/asialjim/.ssh:/root/.ssh  -v /home/asialjim/.m2:/root/.m2  asialjim/maven-with-gpg:jdk8
-docker run -it --rm -e REPO=git@github.com:MicroApplet/Remote.git -e CMD=install -v /home/asialjim/.ssh:/root/.ssh  -v /home/asialjim/.m2:/root/.m2  asialjim/maven-with-gpg:jdk8
-docker run -it --rm -e REPO=git@github.com:MicroApplet/WeChat.git -e CMD=install -v /home/asialjim/.ssh:/root/.ssh  -v /home/asialjim/.m2:/root/.m2  asialjim/maven-with-gpg:jdk8
-docker run -it --rm -e REPO=git@github.com:MicroApplet/MAMS.git -e CMD=install -v /home/asialjim/.ssh:/root/.ssh  -v /home/asialjim/.m2:/root/.m2  asialjim/maven-with-gpg:jdk8
+#docker run -it --rm -e REPO=git@github.com:MicroApplet/commons.git -e CMD=install -v /home/asialjim/.ssh:/root/.ssh  -v /home/asialjim/.m2:/root/.m2  asialjim/maven-with-gpg:jdk8
+#docker run -it --rm -e REPO=git@github.com:MicroApplet/Remote.git -e CMD=install -v /home/asialjim/.ssh:/root/.ssh  -v /home/asialjim/.m2:/root/.m2  asialjim/maven-with-gpg:jdk8
+#docker run -it --rm -e REPO=git@github.com:MicroApplet/WeChat.git -e CMD=install -v /home/asialjim/.ssh:/root/.ssh  -v /home/asialjim/.m2:/root/.m2  asialjim/maven-with-gpg:jdk8
+#docker run -it --rm -e REPO=git@github.com:MicroApplet/MAMS.git -e CMD=install -v /home/asialjim/.ssh:/root/.ssh  -v /home/asialjim/.m2:/root/.m2  asialjim/maven-with-gpg:jdk8
 
-#sh commons.sh
-#sh remote.sh
-#sh wechat.sh
-#sh mams.sh
+sh commons.sh
+sh remote.sh
+sh wechat.sh
+sh mams.sh
