@@ -10,7 +10,7 @@ steps: # 定义流水线执行步骤，这些步骤将顺序执行
       - name: maven-build
         path: /app/build # 将应用打包好的Jar和执行脚本挂载出来
     commands: # 定义在Docker容器中执行的shell命令
-      - cp all.sh /app/build/all.sh
+      - cp *.sh /app/build/
 
   - name: build
     image: appleboy/drone-ssh # SSH工具镜像
@@ -27,7 +27,7 @@ steps: # 定义流水线执行步骤，这些步骤将顺序执行
         - cd /home/asialjim/.app/docker/gitee/ci
         - pwd
         - ls -la
-        - chmod +x all.sh # 更改为可执行脚本
+        - chmod +x *.sh # 更改为可执行脚本
         - ./all.sh
 
 
