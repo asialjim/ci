@@ -4,8 +4,14 @@ name: build # 定义流水线名称
 
 steps: # 定义流水线执行步骤，这些步骤将顺序执行
   - name: install
-    image: drone/drone-runner-ssh # SSH工具镜像
-    network_mode: host
+    image: drone/drone-runner-docker:1 # SSH工具镜像
+    volumes:
+      - name: maven-cache
+        path: /home/asialjim/.m2
+      - name: ssh-cache
+        path: /home/asialjim/.ssh
+      - name: docker
+        path: /var/run/docker.sock # 挂载宿主机的docker
     settings:
       host: 172.40.0.1 # 远程连接地址
       username: asialjim # 远程连接账号
@@ -15,16 +21,7 @@ steps: # 定义流水线执行步骤，这些步骤将顺序执行
       command_timeout: 5m # 远程执行命令超时时间
       commands: # 定义在Docker容器中执行的shell命令
         - cp all.sh /app/build/all.sh
-        - cp commons.sh /app/build/commons.sh
-        - cp mams.sh /app/build/mams.sh
-        - cp remote.sh /app/build/remote.sh
-        - cp wechat.sh /app/build/wechat.sh
-        - chmod +x run.sh # 更改为可执行脚本
-        - chmod +x commons.sh # 更改为可执行脚本
-        - chmod +x mams.sh # 更改为可执行脚本
-        - chmod +x remote.sh # 更改为可执行脚本
-        - chmod +x wechat.sh # 更改为可执行脚本
-        - sh run.sh
+        - sh all.sh
 
 volumes: # 定义流水线挂载目录，用于共享数据
   - name: maven-cache
@@ -33,6 +30,6 @@ volumes: # 定义流水线挂载目录，用于共享数据
   - name: ssh-cache
     host:
       path: /home/asialjim/.ssh
-  - name: maven-settings
+  - name: docker
     host:
-      path: /home/asialjim/.m2/settings.xml
+      path: /var/run/docker.sock
