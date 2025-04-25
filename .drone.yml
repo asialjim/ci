@@ -1,5 +1,5 @@
 kind: pipeline # 定义对象类型，还有secret和signature两种类型
-type: ssh # 定义流水线类型，还有kubernetes、exec、ssh等类型
+type: docker # 定义流水线类型，还有kubernetes、exec、ssh等类型
 name: build # 定义流水线名称
 
 steps: # 定义流水线执行步骤，这些步骤将顺序执行
@@ -12,16 +12,8 @@ steps: # 定义流水线执行步骤，这些步骤将顺序执行
         path: /home/asialjim/.ssh
       - name: docker
         path: /var/run/docker.sock # 挂载宿主机的docker
-    settings:
-      host: 172.40.0.1 # 远程连接地址
-      username: asialjim # 远程连接账号
-      password:
-        from_secret: ssh_password # 从Secret中读取SSH密码
-      port: 22 # 远程连接端口
-      command_timeout: 5m # 远程执行命令超时时间
-      commands: # 定义在Docker容器中执行的shell命令
-        - cp all.sh /app/build/all.sh
-        - sh all.sh
+    commands: # 定义在Docker容器中执行的shell命令
+      - sh all.sh
 
 volumes: # 定义流水线挂载目录，用于共享数据
   - name: maven-cache
