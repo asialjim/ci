@@ -5,6 +5,7 @@ name: build # 定义流水线名称
 steps: # 定义流水线执行步骤，这些步骤将顺序执行
   - name: install
     image: drone/drone-runner-docker:1 # SSH工具镜像
+    pull: if-not-exists
     volumes:
       - name: maven-cache
         path: /home/asialjim/.m2
