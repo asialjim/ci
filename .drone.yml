@@ -3,18 +3,22 @@ type: docker # 定义流水线类型，还有kubernetes、exec、ssh等类型
 name: build # 定义流水线名称
 
 steps: # 定义流水线执行步骤，这些步骤将顺序执行
-  - name: install
-    image: asialjim/maven-with-gpg:jdk8 # SSH工具镜像
-    pull: if-not-exists
-    volumes:
-      - name: maven-cache
-        path: /home/asialjim/.m2
-      - name: ssh-cache
-        path: /home/asialjim/.ssh
-      - name: docker
-        path: /var/run/docker.sock # 挂载宿主机的docker
-    commands: # 定义在Docker容器中执行的shell命令
-      - sh all.sh
+  - name: build
+    image: drone/drone-runner-ssh:latest # SSH工具镜像
+    network_mode: host
+    settings:
+      host: 127.0.0.1 # 远程连接地址
+      username: root # 远程连接账号
+      password:
+        from_secret: ssh_password # 从Secret中读取SSH密码
+      port: 22 # 远程连接端口
+      command_timeout: 5h # 远程执行命令超时时间
+      script:
+        - ./all.sh
+#        - chmod
+#        - cd /home/asialjim/.DroneImage/maven/build # 进入宿主机构建目录
+#        - chmod +x run.sh # 更改为可执行脚本
+#        - ./run.sh # 运行脚本打包应用镜像并运行
 
 volumes: # 定义流水线挂载目录，用于共享数据
   - name: maven-cache
