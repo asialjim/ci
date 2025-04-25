@@ -15,7 +15,6 @@ steps: # 定义流水线执行步骤，这些步骤将顺序执行
   - name: build
     image: appleboy/drone-ssh # SSH工具镜像
     pull: if-not-exists
-#    network_mode: host
     settings:
       host: 172.40.0.1 # 远程连接地址
       username: root # 远程连接账号
@@ -29,10 +28,7 @@ steps: # 定义流水线执行步骤，这些步骤将顺序执行
         - ls -la
         - chmod +x all.sh # 更改为可执行脚本
         - ./all.sh
-#        - chmod
-#        - cd /home/asialjim/.DroneImage/maven/build # 进入宿主机构建目录
-#        - chmod +x run.sh # 更改为可执行脚本
-#        - ./run.sh # 运行脚本打包应用镜像并运行
+
 
 volumes: # 定义流水线挂载目录，用于共享数据
   - name: maven-cache
